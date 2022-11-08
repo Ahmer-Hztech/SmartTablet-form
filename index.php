@@ -42,9 +42,9 @@ include 'database.php';
             <div class="form">
                 <div class="form-column">
                     <span class="wpcf7-form-control-wrap" data-name="Name-of-Business">
-                        <input type="text" name="Name-of-Business" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required Name-of-Business" aria-required="true" aria-invalid="false" placeholder="Name of Business"></span><br>
+                        <input type="text" name="Name-of-Business" required value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required Name-of-Business" aria-required="true" aria-invalid="false" placeholder="Name of Business"></span><br>
                     <span class="wpcf7-form-control-wrap" data-name="abn">
-                        <input type="text" name="abn" value="" size="40" class="wpcf7-form-control wpcf7-text abn" id="abn" aria-invalid="false" placeholder="abn"></span>
+                        <input type="text" name="abn" value="" required size="40" class="wpcf7-form-control wpcf7-text abn" id="abn" aria-invalid="false" placeholder="abn"></span>
                     <input type="hidden" name="amount" value="210" class="wpcf7-form-control wpcf7-hidden amount" id="amount">
                     <span class="wpcf7-form-control-wrap" data-name="StreetAddress">
                         <input type="text" name="StreetAddress" value="" size="40" class="wpcf7-form-control wpcf7-text Street Address" id="StreetAddress" aria-invalid="false" placeholder="Street Address"></span><br>
@@ -69,19 +69,19 @@ include 'database.php';
                     <span class="wpcf7-form-control-wrap" data-name="facebook-url">
                         <input type="url" name="facebook-url" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-url wpcf7-validates-as-required wpcf7-validates-as-url facebook-url" id="facebook-url" aria-required="true" aria-invalid="false" placeholder="facebook-url"></span><br>
                     <span class="wpcf7-form-control-wrap" data-name="online-booking-url">
-                        <input type="url" name="online-booking-url" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-url wpcf7-validates-as-required wpcf7-validates-as-url online-booking-url" id="online-booking-url" aria-required="true" aria-invalid="false" placeholder="online-booking-url"></span><br>
+                        <input type="url" name="online-booking-url" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-url wpcf7-validates-as-required wpcf7-validates-as-url online-booking-url" id="online-booking-url"  aria-required="true" aria-invalid="false" placeholder="online-booking-url" ></span><br>
                     <span class="wpcf7-form-control-wrap" data-name="qoin-wallet">
-                        <input type="text" name="qoin-wallet" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required qoin-wallet" id="qoin-wallet" aria-required="true" aria-invalid="false" placeholder="Qoin wallet"></span>
+                        <input type="text" name="qoin-wallet" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required qoin-wallet" id="qoin-wallet" aria-required="true" aria-invalid="false" placeholder="Qoin wallet" ></span>
                 </div>
                 <div class="last-column">
                     <!-- =============================================Stripe-config================================================== -->
                     <div class="wrapper">
-                        <input type="text" maxlength="19" name="cardnumber" class="cc-number-input" placeholder="Card: xxxx-xxxx-xxxx-xxx">
-                        <input type="text" maxlength="5" name="exp-date" class="cc-expiry-input " placeholder="MM/YY">
-                        <input type="text" maxlength="3" name="cvc" class="cc-cvc-input" placeholder="CVC">
+                        <input type="text" maxlength="19" name="cardnumber" required class="cc-number-input" placeholder="Card: xxxx-xxxx-xxxx-xxx">
+                        <input type="text" maxlength="5" name="exp-date" required class="cc-expiry-input " placeholder="MM/YY">
+                        <input type="text" maxlength="3" name="cvc" required class="cc-cvc-input" placeholder="CVC">
                     </div>
                     <p>
-                        <input type="submit" name="submit" value="Pay Now to Complete your Registration" class="wpcf7-form-control has-spinner wpcf7-submit pay-button" id="pay-button"><span class="ajax-loader"></span><span class="wpcf7-spinner"></span>
+                        <input type="submit" name="submit" value="Pay Now to Complete your Registration" class="wpcf7-form-control has-spinner wpcf7-submit pay-button" id="pay-button" ><span class="ajax-loader"></span><span class="wpcf7-spinner"></span>
                     </p>
                 </div>
             </div>
