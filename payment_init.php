@@ -5,7 +5,7 @@ require 'database.php';
 
 require_once('vendor/autoload.php');
 
-$base_url = "http://localhost/SmartTablet-Form/";
+$base_url = "https://phpstack-552811-3017710.cloudwaysapps.com/";
 // Include the Stripe PHP library 
 $amount = 210;
 

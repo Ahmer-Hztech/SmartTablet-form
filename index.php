@@ -107,9 +107,9 @@ require_once 'database.php';
         }
         return fetch("payment_init.php", {
             method: "POST",
-
             body: data
         }).then(function(result) {
+            console.log(result);
             return result.json();
         });
     };
