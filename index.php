@@ -55,15 +55,15 @@ require_once 'database.php';
                 </div>
                 <div class="last-column">
                     <p class="last-btn">
-                    <button type="button" id="payButton" class="pay-button">
-                        <span id="buttonText">
-                            Pay Now to Complete your Registration
-                        </span>
-                    </button>
-                    <b>
-                        Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other other Apps.
+                        <button type="button" id="payButton" class="pay-button">
+                            <span id="buttonText">
+                                Pay Now to Complete your Registration
+                            </span>
+                        </button>
+                        <b>
+                            Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other other Apps.
 
-                    </b>
+                        </b>
                     </p>
                 </div>
             </div>
@@ -101,7 +101,9 @@ require_once 'database.php';
         var form_array = $(".wpcf7-form").serializeArray();
         var data = new FormData();
         for (var i = 0; i < form_array.length; i++) {
-            data.append(form_array[i].name, form_array[i].value);
+            if (form_array[i].value != "") {
+                data.append(form_array[i].name, form_array[i].value);
+            }
         }
         return fetch("payment_init.php", {
             method: "POST",
@@ -126,12 +128,12 @@ require_once 'database.php';
         if (isLoading) {
             // Disable the button and show a spinner
             payBtn.disabled = true;
-           $("#buttonText").text("Loading...");
+            $("#buttonText").text("Loading...");
         } else {
             // Enable the button and hide spinner
             payBtn.disabled = false;
-           $("#buttonText").text("Pay Now to Complete your Registration");
-            
+            $("#buttonText").text("Pay Now to Complete your Registration");
+
         }
     }
 
