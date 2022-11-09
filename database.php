@@ -1,10 +1,11 @@
 <?php
 
- $hostName = "localhost";
- $userName = "root";
- $password = "";
- $dbName = "stripe_form";
- $conn= new mysqli($hostName,$userName,$password,$dbName);
+$hostName = "localhost";
+$userName = "vvvgfhhfax";
+$password = "u2kQqngUe4";
+$dbName = "vvvgfhhfax";
+$conn= new mysqli($hostName,$userName,$password,$dbName);
+
  
  
  if($conn){
@@ -51,11 +52,3 @@
 
 $conn->close();
 
-
-define('STRIPE_API_KEY', 'sk_test_51JNiI2Fi8jvMvtuWAFZVR1GdxdIXYR3RoHY0V18ZgmltID2cclF4QK588V67zSVgqqqCmzz3o5KqH0ZVTFs3DQxQ00EGGp5A4D'); 
-define('STRIPE_PUBLISHABLE_KEY', 'pk_test_51JNiI2Fi8jvMvtuW0xLPyjcnXLq9UNBLu8bNLgyjt25LcoiMGqXqYWa7udDrn4aPHLgx26v6cviUr0sBUlQ7wZDF00jU1nncas'); 
-define('STRIPE_SUCCESS_URL', 'https://hztech.design/payment-success.php'); //Payment success URL 
-define('STRIPE_CANCEL_URL', 'https://hztech.design/payment-cancel.php'); //Payment cancel URL 
-
-
-?>
