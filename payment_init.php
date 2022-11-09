@@ -5,31 +5,31 @@ require 'database.php';
 
 require_once('vendor/autoload.php');
 
-$base_url="http://localhost/stripe-form/stripe-form/";
+$base_url = "http://localhost/SmartTablet-Form/";
 // Include the Stripe PHP library 
 $amount = 210;
 
-$nameOfBussiness = $_POST['name_business'];
+$business_name = $_POST['name_business'];
 $abn = $_POST['abn'];
 $post_code = $_POST['postcode'];
 $streetAddress = $_POST['street_address'];
-$subrub = $_POST['subrub'];
+$suburb = $_POST['suburb'];
 $state = $_POST['state'];
 $postcode = $_POST['postcode'];
 $type_of_business = $_POST['type_of_business'];
 $contact_person = $_POST['contact_person'];
-$email = $_POST['bussiness_email'];
+$email = $_POST['business_email'];
 $phone = $_POST['phone'];
 $website_address = $_POST['website_address'];
 $online_booking_url = $_POST['online_booking_url'];
 
-$result = "INSERT INTO `tbl_payment`( `name_of_business`, `abn`, `street_address`, `subrub`, `state`, `postcode`, 
-`type_of_business`, `bussiness_email`, `phone`, `website_address`, `online_booking_url`,  `amount`) 
+$result = "INSERT INTO `tbl_payment`( `name_of_business`, `abn`, `street_address`, `suburb`, `state`, `postcode`, 
+`type_of_business`, `business_email`, `phone`, `website_address`, `online_booking_url`,  `amount`) 
     VALUES (
-        '$nameOfBussiness',
+        '$business_name',
         '$abn',
         '$streetAddress',
-        '$subrub',
+        '$suburb',
         '$state',
         '$post_code',
         '$type_of_business',
@@ -54,17 +54,15 @@ if ($conn->query($result) === TRUE) {
     );
 
 
-    if (!empty($nameOfBussiness)) {
-        // Convert product price to cent 
+    if (!empty($business_name)) {
         $stripeAmount = round($amount * 100, 2);
 
-        // Create new Checkout Session for the order 
         try {
             $checkout_session = $stripe->checkout->sessions->create([
                 'line_items' => [[
                     'price_data' => [
                         'product_data' => [
-                            'name' => $nameOfBussiness,
+                            'name' => $business_name,
                         ],
                         'unit_amount' => $stripeAmount,
                         'currency' => "AUD",
@@ -72,8 +70,8 @@ if ($conn->query($result) === TRUE) {
                     'quantity' => 1
                 ]],
                 'mode' => 'payment',
-                'success_url' => $base_url.'/payment-success.php?session_id={CHECKOUT_SESSION_ID}&form_id=' . $last_id,
-                'cancel_url' => $base_url.'/?msg=Payment Cancelled',
+                'success_url' => $base_url . '/payment-success.php?session_id={CHECKOUT_SESSION_ID}&form_id=' . $last_id,
+                'cancel_url' => $base_url . '/index.php?msg=Payment Cancelled',
             ]);
         } catch (Exception $e) {
             $api_error = $e->getMessage();
