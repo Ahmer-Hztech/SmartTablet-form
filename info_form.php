@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
         '$website_address',
        )";
 
+        echo $result;
 
     if ($conn->query($result) === TRUE) {
         $msg = "Thank you for contacting us, one of our representative will reach out to you soon.";
