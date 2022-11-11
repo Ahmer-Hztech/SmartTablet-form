@@ -79,7 +79,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="last-column">
                     <p class="last-btn">
-                        <button type="button" id="payButton" class="pay-button" name="submit">
+                        <button type="submit" id="payButton" class="pay-button" name="submit">
                             <span id="buttonText">
                                 Request for More Info
                             </span>
