@@ -53,30 +53,21 @@ if (isset($_POST['submit'])) {
                 <h4>Request for More Information</h4>
             </div>
         </div>
-
-
         <form action="#0" method="post" class="wpcf7-form init cf7sa">
 
-            <div class="wpcf7-response-output" aria-hidden="true">
-                <?php if (isset($msg)) { ?>
-                    <div class="alert alert-success"><?php echo $msg; ?></div>
-                <?php  } ?>
-                <?php if (isset($fail)) { ?>
-                    <div class="alert alert-danger"><?php echo $fail; ?></div>
-                <?php  } ?>
-            </div>
+
             <div class="form">
                 <div class="form-column">
                     <input type="text" name="name_business" id="name_business" required placeholder="Name of Business"><br>
-                    <input type="text" name="contact_person" id="contact-person" placeholder="Contact Person"><br>
-                    <input type="email" name="business_email" id="email" placeholder="Business Email"><br>
+                    <input type="text" name="contact_person" id="contact-person" required placeholder="Contact Person"><br>
+                    <input type="email" name="business_email" id="email" required placeholder="Business Email"><br>
                     </span>
                 </div>
                 <div class="form-column">
 
-                    <input type="tel" name="phone" id="phone" placeholder="Phone"></span><br>
-                    <input type="url" name="website_address" id="website-address" placeholder="Website Address"><br>
-                    <input type="text" name="type_of_business" id="type-of-business" placeholder="Type of Business">
+                    <input type="tel" name="phone" id="phone" required placeholder="Phone"></span><br>
+                    <input type="url" name="website_address" id="website-address" required placeholder="Website Address"><br>
+                    <input type="text" name="type_of_business" id="type-of-business" required placeholder="Type of Business">
                 </div>
                 <div class="last-column">
                     <p class="last-btn">
@@ -85,10 +76,19 @@ if (isset($_POST['submit'])) {
                                 Request for More Info
                             </span>
                         </button>
-                        <b>
-                            Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other other Apps.
+                        <div class="wpcf7-response-output" aria-hidden="true">
+                            <?php if (isset($msg)) { ?>
+                                <div class="alert alert-success"><?php echo $msg; ?></div>
+                            <?php  } ?>
+                            <?php if (isset($fail)) { ?>
+                                <div class="alert alert-danger"><?php echo $fail; ?></div>
+                            <?php  } ?>
+                        </div>
 
-                        </b>
+                    <b>
+                        Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other other Apps.
+
+                    </b>
                     </p>
                 </div>
             </div>
