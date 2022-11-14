@@ -26,8 +26,8 @@ require_once 'database.php';
                 <h4>Business Registration</h4>
             </div>
         </div>
-        
-            <form action="#0" method="post" id="wpcf7-form " class="wpcf7-form init cf7sa">
+
+        <form action="#0" method="post" id="wpcf7-form " class="wpcf7-form init cf7sa">
 
 
             <div class="form">
@@ -79,7 +79,9 @@ require_once 'database.php';
 
                     <div class="wpcf7-response-output" aria-hidden="true">
                         <?php if (isset($_GET['msg'])) { ?>
-                            <div id="success-message" class="alert alert-success"><?php echo $_GET['msg']; ?></div>
+                            <div id="success-message" class="alert alert-success">
+                                You will receive a Confirmation Email from TEAM shortly. If you don't receive a confirmation email within 15 minutes (please check your spam folder first), please us on <a href="tel:070756354369">07 07 5635 4369</a> during business hours.
+                            </div>
 
                         <?php  } ?>
                         <?php if (isset($_GET['fail'])) { ?>

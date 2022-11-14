@@ -64,10 +64,9 @@ if (!empty($_REQUEST['session_id'])) {
                             $mail->SMTPAuth = false;
                             $mail->SMTPKeepAlive = true;
                             $mail->Port = 25;
-                            // $mail->Username = 'yourname@example.com';
-                            // $mail->Password = 'yourpassword';
+                            
                             $mail->setFrom('no_reply_registrations@tbnaustralia.com', 'The Bussiness Network');
-                            $mail->addAddress('farhad@hztech.biz', 'The Bussiness Network');
+                            $mail->addAddress($row['business_email'], $row['name_of_business']);
 
 
                             $mail->Subject = 'The Business Network Subscription';
