@@ -55,7 +55,7 @@ if (!empty($_REQUEST['session_id'])) {
                         <br /><br />I can confirm your payment for $210 has been received.<br /><br />
                         In order to fully activate your Membership in TEAM, you need to transfer $450 in QOIN to the TEAM QOIN Wallet.<br /><br />
                         Our Wallet Address is [address details]. 
-                        -<strong><em>&nbsp;I will let you have this later today.</em></strong><br /><br />
+                        <br /><br />
                         Shortly, you will receive an email from our Account Management Team, requesting some further details get get you up and fully
                          live on TEAM at the earliest opportunity.<br /><br />With kind regards,<br /><br />Randall Harper<br />Chief Executive</p>
                         ';
