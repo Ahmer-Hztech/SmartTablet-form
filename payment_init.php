@@ -7,7 +7,7 @@ require_once('vendor/autoload.php');
 
 $base_url = $_SERVER['HTTP_REFERER'];
 
-$asd = strtok($base_url, '?');
+$base_url = strtok($base_url, '?');
 
 // Include the Stripe PHP library 
 $amount = 210;
@@ -73,7 +73,7 @@ if ($conn->query($result) === TRUE) {
                 ]],
                 'mode' => 'payment',
                 'success_url' => $base_url . '/payment-success.php?session_id={CHECKOUT_SESSION_ID}&form_id=' . $last_id,
-                'cancel_url' => 'http://localhost/stripe-form/index.php?fail=Payment Cancelled',
+                'cancel_url' => $base_url . '/index.php?fail=Payment Cancelled',
 
             ]);
         } catch (\Exception $e) {
