@@ -5,10 +5,12 @@ require 'database.php';
 
 require_once('vendor/autoload.php');
 
-$base_url = "https://phpstack-552811-3017710.cloudwaysapps.com/";
+$base_url = $_SERVER['HTTP_REFERER'];
+
+$asd = strtok($base_url, '?');
+
 // Include the Stripe PHP library 
 $amount = 210;
-
 $business_name = $_POST['name_business'];
 $abn = $_POST['abn'];
 $post_code = $_POST['postcode'];
@@ -71,9 +73,10 @@ if ($conn->query($result) === TRUE) {
                 ]],
                 'mode' => 'payment',
                 'success_url' => $base_url . '/payment-success.php?session_id={CHECKOUT_SESSION_ID}&form_id=' . $last_id,
-                'cancel_url' => $base_url . '/index.php?msg=Payment Cancelled',
+                'cancel_url' => 'http://localhost/stripe-form/index.php?fail=Payment Cancelled',
+
             ]);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $api_error = $e->getMessage();
         }
 
@@ -93,6 +96,6 @@ if ($conn->query($result) === TRUE) {
         }
     }
 
-    // Return response 
     echo json_encode($response);
+    return $response;
 }

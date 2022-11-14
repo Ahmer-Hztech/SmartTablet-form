@@ -1,5 +1,6 @@
 <?php
 require_once 'database.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,35 +26,69 @@ require_once 'database.php';
                 <h4>Business Registration</h4>
             </div>
         </div>
+        
+            <form action="#0" method="post" id="wpcf7-form " class="wpcf7-form init cf7sa">
 
 
-        <form action="#0" method="post" class="wpcf7-form init cf7sa">
-
-            <div class="wpcf7-response-output" aria-hidden="true">
-                <?php if (isset($_GET['msg'])) { ?>
-                    <div id="success-message" class="alert alert-success"><?php echo $_GET['msg']; ?></div>
-                <?php  } ?>
-                <div id="paymentResponse" class="alert hidden alert-danger"></div>
-            </div>
             <div class="form">
                 <div class="form-column">
-                    <input type="text" name="name_business" id="name_business" required placeholder="Name of Business"><br>
-                    <input type="text" name="abn" required id="abn" placeholder="Abn">
-                    <input type="text" name="street_address" id="StreetAddress" placeholder="Street Address"><br>
-                    <input type="text" name="suburb" id="suburb" placeholder="Suburb"><br>
-                    <input type="text" name="state" id="state" placeholder="State"><br>
-                    <input type="number" name="postcode" id="postcode" placeholder="Postcode"><br>
-                    </span>
+                    <div class="form-group">
+                        <input type="text" name="name_business" id="name_business" required placeholder="Name of Business">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="abn" required id="abn" placeholder="Abn">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="street_address" id="StreetAddress" placeholder="Street Address">
+                    </div>
+                    <div class="form-group">
+
+                        <input type="text" name="suburb" id="suburb" placeholder="Suburb">
+                    </div>
+                    <div class="form-group">
+
+                        <input type="text" name="state" id="state" placeholder="State">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="postcode" id="postcode" placeholder="Postcode">
+                    </div>
                 </div>
                 <div class="form-column">
-                    <input type="text" name="contact_person" id="contact-person" placeholder="Contact Person"><br>
-                    <input type="email" name="business_email" id="email" placeholder="Business Email"><br>
-                    <input type="tel" name="phone" id="phone" placeholder="Phone"></span><br>
-                    <input type="url" name="website_address" id="website-address" placeholder="Website Address"><br>
-                    <input type="url" name="online_booking_url" id="online-booking-url" placeholder="Online Booking Url"><br>
-                    <input type="text" name="type_of_business" id="type-of-business" placeholder="Type of Business">
+                    <div class="form-group">
+
+                        <input type="text" name="contact_person" id="contact-person" placeholder="Contact Person">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="business_email" id="email" placeholder="Business Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="phone" placeholder="Phone"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="website_address" id="website-address" placeholder="Website Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="online_booking_url" id="online-booking-url" placeholder="Online Booking Url">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="type_of_business" id="type-of-business" placeholder="Type of Business">
+                    </div>
                 </div>
+
                 <div class="last-column">
+
+                    <div class="wpcf7-response-output" aria-hidden="true">
+                        <?php if (isset($_GET['msg'])) { ?>
+                            <div id="success-message" class="alert alert-success"><?php echo $_GET['msg']; ?></div>
+
+                        <?php  } ?>
+                        <?php if (isset($_GET['fail'])) { ?>
+                            <div id="success-message" class="alert alert-danger"><?php echo $_GET['fail']; ?></div>
+
+                        <?php  } ?>
+                        <div id="paymentResponse" class="alert hidden alert-danger"></div>
+
+                    </div>
                     <p class="last-btn">
                         <button type="button" id="payButton" class="pay-button">
                             <span id="buttonText">
@@ -76,9 +111,51 @@ require_once 'database.php';
 <script>
     const stripe = Stripe('pk_test_51JNiI2Fi8jvMvtuW0xLPyjcnXLq9UNBLu8bNLgyjt25LcoiMGqXqYWa7udDrn4aPHLgx26v6cviUr0sBUlQ7wZDF00jU1nncas');
     const payBtn = document.querySelector("#payButton");
-    $("#payButton").click(function() {
-        if ($("#name_business").val() == "") {
-            showMessage("Name of Business is Required");
+    // $("#payButton").click(function() {
+
+    //     if ($("#name_business").val() == "") {
+    //         showMessage("Name of Business is Required");
+    //     }else if ($("#abn").val() == "") {
+    //         showMessage("Abn is Required");
+    //     } else if ($("#StreetAddress").val() == "") {
+    //         showMessage("Street Address is Required");
+    //     } else if ($("#suburb").val() == "") {
+    //         showMessage("Suburb is Required");
+    //     } else {
+    //         setLoading(true);
+    //         createCheckoutSession().then(function(data) {
+    //             if (data.sessionId) {
+    //                 stripe.redirectToCheckout({
+    //                     sessionId: data.sessionId,
+    //                 }).then(handleResult);
+    //             } else {
+    //                 handleResult(data);
+    //             }
+    //         });
+    //     }
+
+    // });
+
+    $('#payButton').on('click', function() {
+        $(".error").remove();
+        var valid = true,
+            message = '';
+
+        $('form input').each(function() {
+            var $this = $(this);
+
+            if (!$this.val()) {
+                var inputName = $this.attr('placeholder');
+                valid = false;
+                var text1 = "<br>";
+                message = '<small class="text-danger error">*Please enter your ' + inputName + '</small>';
+                $(this).parent().append(message);
+            }
+        });
+
+        if (!valid) {
+            console.log(message);
+            // $("#paymentResponse").removeClass("hidden").append(message);
         } else {
             setLoading(true);
             createCheckoutSession().then(function(data) {
@@ -91,8 +168,20 @@ require_once 'database.php';
                 }
             });
         }
-
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Payment request handler
 
     // Create a Checkout Session with the selected product
