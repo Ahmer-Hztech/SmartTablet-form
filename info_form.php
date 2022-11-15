@@ -54,8 +54,6 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
         <form action="#0" method="post" class="wpcf7-form init cf7sa">
-
-
             <div class="form">
                 <div class="form-column">
                     <input type="text" name="name_business" id="name_business" required placeholder="Name of Business"><br>

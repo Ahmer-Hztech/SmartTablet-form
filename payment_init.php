@@ -11,7 +11,7 @@ if (strpos($base_url, "index.php") !== false) {
 $base_url = strtok($base_url, '?');
 
 // Include the Stripe PHP library 
-$amount = 210;
+$amount = AMOUNT;
 $business_name = $_POST['name_business'];
 $abn = $_POST['abn'];
 $post_code = $_POST['postcode'];

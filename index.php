@@ -110,7 +110,7 @@ require_once 'database.php';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    const stripe = Stripe('pk_test_51JNiI2Fi8jvMvtuW0xLPyjcnXLq9UNBLu8bNLgyjt25LcoiMGqXqYWa7udDrn4aPHLgx26v6cviUr0sBUlQ7wZDF00jU1nncas');
+    const stripe = Stripe(<?= PUBLISH_KEY ?>);
     const payBtn = document.querySelector("#payButton");
     // $("#payButton").click(function() {
 

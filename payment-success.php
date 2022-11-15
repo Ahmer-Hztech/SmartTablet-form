@@ -16,7 +16,7 @@ if (!empty($_REQUEST['session_id'])) {
     $last_id = $_REQUEST['form_id'];
 
     $stripe = new \Stripe\StripeClient(
-        'sk_test_51JNiI2Fi8jvMvtuWAFZVR1GdxdIXYR3RoHY0V18ZgmltID2cclF4QK588V67zSVgqqqCmzz3o5KqH0ZVTFs3DQxQ00EGGp5A4D'
+        SECRET_KEY
     );
 
     try {
@@ -64,7 +64,7 @@ if (!empty($_REQUEST['session_id'])) {
                             $mail->SMTPAuth = false;
                             $mail->SMTPKeepAlive = true;
                             $mail->Port = 25;
-                            
+
                             $mail->setFrom('no_reply_registrations@tbnaustralia.com', 'The Bussiness Network');
                             $mail->addAddress($row['business_email'], $row['name_of_business']);
 
