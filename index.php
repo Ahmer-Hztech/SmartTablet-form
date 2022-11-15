@@ -74,7 +74,8 @@ require_once 'database.php';
                     <div class="wpcf7-response-output" aria-hidden="true">
                         <?php if (isset($_GET['msg'])) { ?>
                             <div id="success-message" class="alert alert-success">
-                                You will receive a Confirmation Email from TEAM shortly. If you don't receive a confirmation email within 15 minutes (please check your spam folder first), please call us on <a href="tel:070756354369">07 07 5635 4369</a> during business hours.
+                                You will receive a Confirmation Email from TEAM shortly. If you don't receive a confirmation email
+                                within 15 minutes (please check your spam folder first), please call us on <a href="tel:07 5635 4369">07 5635 4369</a> during business hours.
                             </div>
 
                         <?php  } ?>
@@ -85,14 +86,21 @@ require_once 'database.php';
                         <div id="paymentResponse" class="alert hidden alert-danger"></div>
                     </div>
                     <p class="last-btn">
-                        <button type="button" id="payButton" class="pay-button">
+                        <button type="button" id="payButton" <?php if (isset($_GET['msg'])) { ?> disabled <?php } ?> class="pay-button">
                             <span id="buttonText">
-                                Pay Now to Complete your Registration
+                                <?php if (!isset($_GET['msg'])) { ?> Pay Now to Complete your Registration
+                                <?php } else { ?>
+                                    Payment Successful
+                                <?php } ?>
                             </span>
                         </button>
                         <b>
-                            Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other Apps.
+                            Following registration, our Business Support Team will be in touch with you within a few days to get you up and
+                            running on the Team Business Network and other Apps. You will also shortly receive an email outlining the next steps.
                         </b>
+                    <div style="text-align:center">
+                        <h4>Welcome to TEAM<br>Together Everyone Achieves More</h4>
+                    </div>
                     </p>
                 </div>
             </div>
