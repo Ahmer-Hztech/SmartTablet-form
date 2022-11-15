@@ -28,7 +28,7 @@ require_once 'database.php';
         </div>
         <?php
         if (isset($_GET['form_id'])) {
-            $last_id=$_GET['form_id '];
+            $last_id=$_GET['form_id'];
             $sql = "SELECT * FROM tbl_payment where owner_ID='$last_id'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
