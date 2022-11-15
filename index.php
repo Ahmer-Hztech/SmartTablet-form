@@ -99,7 +99,6 @@ require_once 'database.php';
                         </button>
                         <b>
                             Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other Apps.
-
                         </b>
                     </p>
                 </div>
