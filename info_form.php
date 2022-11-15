@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
                 <div class="form-column">
 
                     <input type="tel" name="phone" id="phone" required placeholder="Phone"></span><br>
-                    <input type="url" name="website_address" id="website-address" required placeholder="Website Address"><br>
+                    <input type="text" name="website_address" id="website-address" required placeholder="Website Address"><br>
                     <input type="text" name="type_of_business" id="type-of-business" required placeholder="Type of Business">
                 </div>
                 <div class="last-column">
