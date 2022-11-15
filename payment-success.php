@@ -54,7 +54,7 @@ if (!empty($_REQUEST['session_id'])) {
                         Welcome to TEAM. I look forward to helping you expand your business and increase revenues. The next couple of years are going to be very exciting indeed.
                         <br /><br />I can confirm your payment for $210 has been received.<br /><br />
                         In order to fully activate your Membership in TEAM, you need to transfer $450 in QOIN to the TEAM QOIN Wallet.<br /><br />
-                        Our Wallet Address is <a href="#0" onclick="{navigator.clipboard.writeText(this.text);}">0x2162a2b7A6f9744251D4370ae6c38324C58D95f7 <img src="images/copy.png" style="height:30px;"></a>. 
+                        Our Wallet Address is <a href="#0" style="color:black" onclick="{navigator.clipboard.writeText(this.text);}">0x2162a2b7A6f9744251D4370ae6c38324C58D95f7 <img src="https://tbnaustralia.com/registration/images/copy.png" style="height:30px;"></a>. 
                         <br /><br />
                         Shortly, you will receive an email from our Account Management Team, requesting some further details to get you up and fully
                          live on TEAM at the earliest opportunity.<br /><br />With kind regards,<br /><br />Randall Harper<br />Chief Executive</p>
