@@ -56,7 +56,7 @@ if (!empty($_REQUEST['session_id'])) {
                         In order to fully activate your Membership in TEAM, you need to transfer $450 in QOIN to the TEAM QOIN Wallet.<br /><br />
                         Our Wallet Address is [address details]. 
                         <br /><br />
-                        Shortly, you will receive an email from our Account Management Team, requesting some further details get get you up and fully
+                        Shortly, you will receive an email from our Account Management Team, requesting some further details to get you up and fully
                          live on TEAM at the earliest opportunity.<br /><br />With kind regards,<br /><br />Randall Harper<br />Chief Executive</p>
                         ';
                             $mail->isSMTP();

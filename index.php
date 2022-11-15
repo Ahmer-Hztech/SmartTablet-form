@@ -33,36 +33,36 @@ require_once 'database.php';
             <div class="form">
                 <div class="form-column">
                     <div class="form-group">
-                        <input type="text" name="name_business" id="name_business" required placeholder="Name of Business">
+                        <input type="text" name="name_business" id="name_business" required placeholder="Name of Business*">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="abn" required id="abn" placeholder="Abn">
+                        <input type="text" name="abn" required id="abn" placeholder="Abn*">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="street_address" id="StreetAddress" placeholder="Street Address">
-                    </div>
-                    <div class="form-group">
-
-                        <input type="text" name="suburb" id="suburb" placeholder="Suburb">
+                        <input type="text" name="street_address" id="StreetAddress" placeholder="Street Address*">
                     </div>
                     <div class="form-group">
 
-                        <input type="text" name="state" id="state" placeholder="State">
+                        <input type="text" name="suburb" id="suburb" placeholder="Suburb*">
                     </div>
                     <div class="form-group">
-                        <input type="number" name="postcode" id="postcode" placeholder="Postcode">
+
+                        <input type="text" name="state" id="state" placeholder="State*">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="postcode" id="postcode" placeholder="Postcode*">
                     </div>
                 </div>
                 <div class="form-column">
                     <div class="form-group">
 
-                        <input type="text" name="contact_person" id="contact-person" placeholder="Contact Person">
+                        <input type="text" name="contact_person" id="contact-person" placeholder="Contact Person*">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="business_email" id="email" placeholder="Business Email">
+                        <input type="email" name="business_email" id="email" placeholder="Business Email*">
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="phone" id="phone" placeholder="Phone"></span>
+                        <input type="tel" name="phone" id="phone" placeholder="Phone*">
                     </div>
                     <div class="form-group">
                         <input type="url" name="website_address" id="website-address" placeholder="Website Address">
@@ -71,7 +71,7 @@ require_once 'database.php';
                         <input type="url" name="online_booking_url" id="online-booking-url" placeholder="Online Booking Url">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="type_of_business" id="type-of-business" placeholder="Type of Business">
+                        <input type="text" name="type_of_business" id="type-of-business" placeholder="Type of Business*">
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@ require_once 'database.php';
                     <div class="wpcf7-response-output" aria-hidden="true">
                         <?php if (isset($_GET['msg'])) { ?>
                             <div id="success-message" class="alert alert-success">
-                                You will receive a Confirmation Email from TEAM shortly. If you don't receive a confirmation email within 15 minutes (please check your spam folder first), please us on <a href="tel:070756354369">07 07 5635 4369</a> during business hours.
+                                You will receive a Confirmation Email from TEAM shortly. If you don't receive a confirmation email within 15 minutes (please check your spam folder first), please call us on <a href="tel:070756354369">07 07 5635 4369</a> during business hours.
                             </div>
 
                         <?php  } ?>
@@ -98,7 +98,7 @@ require_once 'database.php';
                             </span>
                         </button>
                         <b>
-                            Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other other Apps.
+                            Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other Apps.
 
                         </b>
                     </p>
@@ -145,13 +145,14 @@ require_once 'database.php';
 
         $('form input').each(function() {
             var $this = $(this);
-
-            if (!$this.val()) {
-                var inputName = $this.attr('placeholder');
-                valid = false;
-                var text1 = "<br>";
-                message = '<small class="text-danger error">*Please enter your ' + inputName + '</small>';
-                $(this).parent().append(message);
+            if ($this.attr("type") != "url") {
+                if (!$this.val()) {
+                    var inputName = $this.attr('placeholder');
+                    valid = false;
+                    var text1 = "<br>";
+                    message = '<small class="text-danger error">*Please enter your ' + inputName + '</small>';
+                    $(this).parent().append(message);
+                }
             }
         });
 
