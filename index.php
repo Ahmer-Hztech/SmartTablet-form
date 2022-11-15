@@ -34,6 +34,8 @@ require_once 'database.php';
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
             }
+            print_r($row);
+            die();
         }
         ?>
         <form action="#0" method="post" id="wpcf7-form " class="wpcf7-form init cf7sa">
