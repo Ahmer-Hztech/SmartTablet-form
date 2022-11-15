@@ -88,27 +88,27 @@ if (isset($_POST['submit'])) {
             <div class="form">
                 <div class="form-column">
                     <div class="form-group">
-                        <input type="text" name="name_business" id="name_business" required placeholder="Name of Business">
+                        <input type="text" name="name_business" id="name_business" required placeholder="Name of Business*">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="contact_person" id="contact-person" required placeholder="Contact Person">
+                        <input type="text" name="contact_person" id="contact-person" required placeholder="Contact Person*">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="business_email" id="email" required placeholder="Business Email">
+                        <input type="email" name="business_email" id="email" required placeholder="Business Email*">
                     </div>
                     </span>
                 </div>
                 <div class="form-column">
                     <div class="form-group">
-                        <input type="tel" name="phone" id="phone" required placeholder="Phone">
+                        <input type="tel" name="phone" id="phone" required placeholder="Phone*">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" name="website_address" id="website-address" required placeholder="Website Address">
+                        <input type="text" name="website_address" id="website-address" placeholder="Website Address">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" name="type_of_business" id="type-of-business" required placeholder="Type of Business">
+                        <input type="text" name="type_of_business" id="type-of-business" required placeholder="Type of Business*">
                     </div>
                 </div>
                 <div class="last-column">
