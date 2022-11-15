@@ -1,5 +1,11 @@
 <?php
-require_once 'database.php';
+
+require 'database.php';
+require_once('vendor/autoload.php');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 if (isset($_POST['submit'])) {
     $name_business = $_POST['name_business'];
@@ -21,8 +27,33 @@ if (isset($_POST['submit'])) {
        )";
 
 
-
     if ($conn->query($result) === TRUE) {
+        try {
+            $mail = new PHPMailer(true);
+
+            $body = '
+        Name of Business: ' . $name_business . '<br>
+        Phone: ' . $phone . '<br>
+        Email of Business: ' . $business_email . '<br>
+        Type of Business: ' . $type_of_business . '<br>
+        Contact Person: ' . $contact_person . '<br>
+        Website Address: ' . $website_address . '<br>
+        ';
+            $mail->isSMTP();
+            $mail->Host = 'smtp-relay.gmail.com';
+            $mail->SMTPAuth = false;
+            $mail->SMTPKeepAlive = true;
+            $mail->Port = 25;
+
+            $mail->setFrom('no_reply_registrations@tbnaustralia.com', 'The TEAM Business Network');
+            $mail->addAddress($business_email, $name_business);
+
+            $mail->Subject = 'Request for Information';
+
+            $mail->msgHTML($body);
+            $mail->send();
+        } catch (\Exception $ex) {
+        }
         $msg = "Thank you for contacting us, a member of our Account Management Team will reach out to you soon.";
     } else {
         $fail = "Server Error";
@@ -71,17 +102,17 @@ if (isset($_POST['submit'])) {
                     <p class="last-btn">
                         <button type="submit" id="payButton" class="pay-button" name="submit">
                             <span id="buttonText">
-                            Request for More Information
+                                Request for More Information
                             </span>
                         </button>
-                        <div class="wpcf7-response-output" aria-hidden="true">
-                            <?php if (isset($msg)) { ?>
-                                <div class="alert alert-success"><?php echo $msg; ?></div>
-                            <?php  } ?>
-                            <?php if (isset($fail)) { ?>
-                                <div class="alert alert-danger"><?php echo $fail; ?></div>
-                            <?php  } ?>
-                        </div>
+                    <div class="wpcf7-response-output" aria-hidden="true">
+                        <?php if (isset($msg)) { ?>
+                            <div class="alert alert-success"><?php echo $msg; ?></div>
+                        <?php  } ?>
+                        <?php if (isset($fail)) { ?>
+                            <div class="alert alert-danger"><?php echo $fail; ?></div>
+                        <?php  } ?>
+                    </div>
 
                     <!-- <b>
                         Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other Apps.
