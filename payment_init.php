@@ -5,8 +5,8 @@ require 'database.php';
 
 require_once('vendor/autoload.php');
 $base_url = $_SERVER['HTTP_REFERER'];
-if (strpos($base_url, "index.php") !== false) {
-    $base_url = str_replace("index.php", "", $base_url);
+if (strpos($base_url, "registration") !== false) {
+    $base_url = str_replace("registration", "", $base_url);
 }
 $base_url = strtok($base_url, '?');
 
@@ -73,8 +73,8 @@ if ($conn->query($result) === TRUE) {
                     'quantity' => 1
                 ]],
                 'mode' => 'payment',
-                'success_url' => $base_url . '/payment-success.php?session_id={CHECKOUT_SESSION_ID}&form_id=' . $last_id,
-                'cancel_url' => $base_url . '/index.php?fail=Payment Cancelled',
+                'success_url' => $base_url . '/payment-success?session_id={CHECKOUT_SESSION_ID}&form_id=' . $last_id,
+                'cancel_url' => $base_url . '/registration?fail=Payment Cancelled',
 
             ]);
         } catch (\Exception $e) {

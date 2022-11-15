@@ -75,22 +75,22 @@ if (!empty($_REQUEST['session_id'])) {
                             $mail->msgHTML($body);
                             $mail->send();
                         } else {
-                            header("location: index.php?msg=Payment Failed!");
+                            header("location: registration?msg=Payment Failed!");
                         }
                     } catch (\Exception $e) {
-                        header("location: index.php?msg=Email Failed!");
+                        header("location: registration?msg=Email Failed!");
                     }
-                    header("location: index.php?msg=Payment Successful!");
+                    header("location: registration?msg=Payment Successful!");
                 }
             } else {
-                header("location: index.php?msg=Payment Failed!");
+                header("location: registration?msg=Payment Failed!");
             }
         } else {
-            header("location: index.php?msg=Payment Failed!");
+            header("location: registration?msg=Payment Failed!");
         }
     } else {
-        header("location: index.php?msg=Payment Failed!");
+        header("location: registration?msg=Payment Failed!");
     }
 } else {
-    header("location: index.php?msg=Payment Failed!");
+    header("location: registration?msg=Payment Failed!");
 }
