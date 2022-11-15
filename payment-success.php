@@ -80,7 +80,7 @@ if (!empty($_REQUEST['session_id'])) {
                     } catch (\Exception $e) {
                         header("location: index.php?msg=Email Failed!");
                     }
-                    header("location: index.php?msg=Payment Successful!&from_id=$last_id");
+                    header("location: index.php?msg=Payment Successful!&form_id=$last_id");
                 }
             } else {
                 header("location: index.php?msg=Payment Failed!");
