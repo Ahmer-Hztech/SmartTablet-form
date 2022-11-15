@@ -51,6 +51,8 @@ if (isset($_POST['submit'])) {
 
             $mail->setFrom('no_reply_registrations@tbnaustralia.com', 'The TEAM Business Network');
             $mail->addAddress($business_email, $name_business);
+            $mail->addAddress("randall.harper@teamts.com.au", "Randall Harper");
+            
 
             $mail->Subject = 'Request for Information';
 
