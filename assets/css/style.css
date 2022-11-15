@@ -85,8 +85,8 @@ div.title-h4 h4 {
     margin: 2% 26px;
 }
 
-.form .form-group{
-    margin-bottom:20px;
+.form .form-group {
+    margin-bottom: 20px;
 }
 
 button {
@@ -116,10 +116,19 @@ button {
     background-color: #159e15;
 }
 
-.text-danger{
-    color:red;
+.text-danger {
+    color: red;
 }
 
 .hidden {
     display: none;
+}
+
+#welcome_team {
+    text-align: center;
+}
+
+#welcome_team h4 {
+    font-weight: 700;
+    font-size: 20px;
 }

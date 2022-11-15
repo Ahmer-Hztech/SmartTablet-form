@@ -98,7 +98,7 @@ require_once 'database.php';
                             Following registration, our Business Support Team will be in touch with you within a few days to get you up and
                             running on the Team Business Network and other Apps. You will also shortly receive an email outlining the next steps.
                         </b>
-                    <div style="text-align:center">
+                    <div id="welcome_team">
                         <h4>Welcome to TEAM<br>Together Everyone Achieves More</h4>
                     </div>
                     </p>
