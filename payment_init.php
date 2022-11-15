@@ -47,7 +47,7 @@ if ($conn->query($result) === TRUE) {
     $last_id = $conn->insert_id;
 
     $stripe = new \Stripe\StripeClient(
-        'sk_test_51JNiI2Fi8jvMvtuWAFZVR1GdxdIXYR3RoHY0V18ZgmltID2cclF4QK588V67zSVgqqqCmzz3o5KqH0ZVTFs3DQxQ00EGGp5A4D'
+        SECRET_KEY
     );
     $response = array(
         'status' => 0,
