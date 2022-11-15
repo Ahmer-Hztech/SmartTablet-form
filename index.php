@@ -26,47 +26,56 @@ require_once 'database.php';
                 <h4>Business Registration</h4>
             </div>
         </div>
-
+        <?php
+        if (isset($_REQUEST['form_id'])) {
+            $last_id=$_REQUEST['form_id'];
+            $sql = "SELECT * FROM tbl_payment where owner_ID='$last_id'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+            }
+        }
+        ?>
         <form action="#0" method="post" id="wpcf7-form " class="wpcf7-form init cf7sa">
             <div class="form">
                 <div class="form-column">
                     <div class="form-group">
-                        <input type="text" name="name_business" id="name_business" required placeholder="Name of Business*">
+                        <input type="text" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['name_of_business'] : "" ?>" name="name_business" id="name_business" required placeholder="Name of Business*">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="abn" required id="abn" placeholder="Abn*">
+                        <input type="text" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['abn'] : "" ?>" name="abn" required id="abn" placeholder="Abn*">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="street_address" id="StreetAddress" placeholder="Street Address*">
+                        <input type="text" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['street_address'] : "" ?>" name="street_address" id="StreetAddress" placeholder="Street Address*">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="suburb" id="suburb" placeholder="Suburb*">
+                        <input type="text" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['suburb'] : "" ?>" name="suburb" id="suburb" placeholder="Suburb*">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="state" id="state" placeholder="State*">
+                        <input type="text" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['state'] : "" ?>" name="state" id="state" placeholder="State*">
                     </div>
                     <div class="form-group">
-                        <input type="number" name="postcode" id="postcode" placeholder="Postcode*">
+                        <input type="number" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['postcode'] : "" ?>" name="postcode" id="postcode" placeholder="Postcode*">
                     </div>
                 </div>
                 <div class="form-column">
                     <div class="form-group">
-                        <input type="text" name="contact_person" id="contact-person" placeholder="Contact Person*">
+                        <input type="text" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['contact_person'] : "" ?>" name="contact_person" id="contact-person" placeholder="Contact Person*">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="business_email" id="email" placeholder="Business Email*">
+                        <input type="email" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['business_email'] : "" ?>" name="business_email" id="email" placeholder="Business Email*">
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="phone" id="phone" placeholder="Phone*">
+                        <input type="tel" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['phone'] : "" ?>" name="phone" id="phone" placeholder="Phone*">
                     </div>
                     <div class="form-group">
-                        <input type="url" name="website_address" id="website-address" placeholder="Website Address">
+                        <input type="url" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['website_address'] : "" ?>" name="website_address" id="website-address" placeholder="Website Address">
                     </div>
                     <div class="form-group">
-                        <input type="url" name="online_booking_url" id="online-booking-url" placeholder="Online Booking Url">
+                        <input type="url" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['online_booking_url'] : "" ?>" name="online_booking_url" id="online-booking-url" placeholder="Online Booking Url">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="type_of_business" id="type-of-business" placeholder="Type of Business*">
+                        <input type="text" value="<?php isset($_REQUEST['form_id']) && isset($row) ? $row['type_of_business'] : "" ?>" name="type_of_business" id="type-of-business" placeholder="Type of Business*">
                     </div>
                 </div>
 

@@ -26,8 +26,10 @@ $phone = $_POST['phone'];
 $website_address = $_POST['website_address'];
 $online_booking_url = $_POST['online_booking_url'];
 
-$result = "INSERT INTO `tbl_payment`( `name_of_business`, `abn`, `street_address`, `suburb`, `state`, `postcode`, 
-`type_of_business`, `business_email`, `phone`, `website_address`, `online_booking_url`,  `amount`) 
+$result = "INSERT INTO `tbl_payment`( `name_of_business`, `abn`, `street_address`,
+ `suburb`, `state`, `postcode`, 
+`type_of_business`, `business_email`,
+ `phone`, `website_address`, `online_booking_url`,  `amount`,`contact_person`) 
     VALUES (
         '$business_name',
         '$abn',
@@ -40,7 +42,9 @@ $result = "INSERT INTO `tbl_payment`( `name_of_business`, `abn`, `street_address
         '$phone',
         '$website_address',
         '$online_booking_url',
-        '$amount')";
+        '$amount',
+        '$contact_person'
+        )";
 
 
 if ($conn->query($result) === TRUE) {
