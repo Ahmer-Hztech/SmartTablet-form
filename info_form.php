@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 
 
     if ($conn->query($result) === TRUE) {
-        $msg = "Thank you for contacting us, one of our representative will reach out to you soon.";
+        $msg = "Thank you for contacting us, a member of our Account Management Team will reach out to you soon.";
     } else {
         $fail = "Server Error";
     }
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
                     <p class="last-btn">
                         <button type="submit" id="payButton" class="pay-button" name="submit">
                             <span id="buttonText">
-                                Request for More Info
+                            Request for More Information
                             </span>
                         </button>
                         <div class="wpcf7-response-output" aria-hidden="true">
@@ -83,10 +83,10 @@ if (isset($_POST['submit'])) {
                             <?php  } ?>
                         </div>
 
-                    <b>
-                        Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other other Apps.
+                    <!-- <b>
+                        Following registration, our Business Support Team will be in touch with you within a few days to get you up and running on the Team Business Network and other Apps.
 
-                    </b>
+                    </b> -->
                     </p>
                 </div>
             </div>
