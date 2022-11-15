@@ -28,10 +28,14 @@ if (isset($_POST['submit'])) {
 
 
     if ($conn->query($result) === TRUE) {
+        $msg = "Thank you for contacting us, a member of our Account Management Team will reach out to you soon.";
+
         try {
             $mail = new PHPMailer(true);
 
             $body = '
+            Hi ' . $name_business . ',<br><br>' . $msg . '
+            <br><br>
         Name of Business: ' . $name_business . '<br>
         Phone: ' . $phone . '<br>
         Email of Business: ' . $business_email . '<br>
@@ -54,7 +58,6 @@ if (isset($_POST['submit'])) {
             $mail->send();
         } catch (\Exception $ex) {
         }
-        $msg = "Thank you for contacting us, a member of our Account Management Team will reach out to you soon.";
     } else {
         $fail = "Server Error";
     }
