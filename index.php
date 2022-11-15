@@ -28,8 +28,6 @@ require_once 'database.php';
         </div>
 
         <form action="#0" method="post" id="wpcf7-form " class="wpcf7-form init cf7sa">
-
-
             <div class="form">
                 <div class="form-column">
                     <div class="form-group">
@@ -42,11 +40,9 @@ require_once 'database.php';
                         <input type="text" name="street_address" id="StreetAddress" placeholder="Street Address*">
                     </div>
                     <div class="form-group">
-
                         <input type="text" name="suburb" id="suburb" placeholder="Suburb*">
                     </div>
                     <div class="form-group">
-
                         <input type="text" name="state" id="state" placeholder="State*">
                     </div>
                     <div class="form-group">
@@ -55,7 +51,6 @@ require_once 'database.php';
                 </div>
                 <div class="form-column">
                     <div class="form-group">
-
                         <input type="text" name="contact_person" id="contact-person" placeholder="Contact Person*">
                     </div>
                     <div class="form-group">
@@ -76,7 +71,6 @@ require_once 'database.php';
                 </div>
 
                 <div class="last-column">
-
                     <div class="wpcf7-response-output" aria-hidden="true">
                         <?php if (isset($_GET['msg'])) { ?>
                             <div id="success-message" class="alert alert-success">
@@ -89,7 +83,6 @@ require_once 'database.php';
 
                         <?php  } ?>
                         <div id="paymentResponse" class="alert hidden alert-danger"></div>
-
                     </div>
                     <p class="last-btn">
                         <button type="button" id="payButton" class="pay-button">
@@ -110,32 +103,8 @@ require_once 'database.php';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    const stripe = Stripe(<?= PUBLISH_KEY ?>);
+    const stripe = Stripe('<?= PUBLISH_KEY ?>');
     const payBtn = document.querySelector("#payButton");
-    // $("#payButton").click(function() {
-
-    //     if ($("#name_business").val() == "") {
-    //         showMessage("Name of Business is Required");
-    //     }else if ($("#abn").val() == "") {
-    //         showMessage("Abn is Required");
-    //     } else if ($("#StreetAddress").val() == "") {
-    //         showMessage("Street Address is Required");
-    //     } else if ($("#suburb").val() == "") {
-    //         showMessage("Suburb is Required");
-    //     } else {
-    //         setLoading(true);
-    //         createCheckoutSession().then(function(data) {
-    //             if (data.sessionId) {
-    //                 stripe.redirectToCheckout({
-    //                     sessionId: data.sessionId,
-    //                 }).then(handleResult);
-    //             } else {
-    //                 handleResult(data);
-    //             }
-    //         });
-    //     }
-
-    // });
 
     $('#payButton').on('click', function() {
         $(".error").remove();
@@ -171,20 +140,6 @@ require_once 'database.php';
             });
         }
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Payment request handler
 
     // Create a Checkout Session with the selected product
     const createCheckoutSession = function(stripe) {
